@@ -4,6 +4,8 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 
+import localFont from 'next/font/local';
+
 // Styles
 import './index.css';
 
@@ -14,13 +16,19 @@ const metadata: Metadata = {
 	creator: 'Alireza Moradi'
 }
 
+const IranSans = localFont({
+	src: './fonts/IRANSans.ttf',
+	variable: '--font-IranSans',
+	display: 'swap'
+})
+
 // Layout
 const RootLayout = (
 	{children}: { children: ReactNode }
 ) => {
 	return(
-		<html lang="en" suppressHydrationWarning>
-			<body className="p-4">
+		<html lang="en" dir="rtl" className={IranSans.className} suppressHydrationWarning>
+			<body>
 				<AppRouterCacheProvider options={{ enableCssLayer: true }}>
 					{children}
 				</AppRouterCacheProvider>
@@ -34,4 +42,5 @@ export default RootLayout;
 
 export {
 	metadata,
+	IranSans
 }

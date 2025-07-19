@@ -2,22 +2,21 @@
 
 
 // Mui Components
-import { 
-	Typography
-} from "@mui/material";
 
+
+// Components
+import TheFooter from "./components/TheFooter";
 
 // Page
-const EcommercePages = async ({ params }: { params: Promise<{ id: string }> }) => {
-	const {id} = await params;
+const EcommercePages = async () => {
 
 	return(<>
-		<Typography
-			variant="h4"
-			className="text-center"
-		>
-			Welcome to project <span className="text-green-500">{id}</span>
-		</Typography>
+		<main className="
+			lg:grid lg:grid-rows-12 lg:grid-cols-12 h-dvh p-4
+			bg-[#052A19]
+		">
+			<TheFooter />
+		</main>
 	</>);
 };
 
